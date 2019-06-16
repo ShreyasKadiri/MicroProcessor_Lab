@@ -1,0 +1,25 @@
+assume cs:code, ds:data
+data segment
+sine db 0, 11d, 22d, 33d, 43d, 54d, 63d, 72d, 81d, 90d, 97d, 104d, 109d, 115d, 119d, 122d
+db 125d, 126d, 127d, 126d, 122d, 119d, 115d, 109d, 104d, 97d, 90d, 81d, 72d, 63d
+db 54d, 43d, 33d, 22d, 11d
+pa db 44a0h
+cr db 44a3h
+data end
+code segment
+start:
+mov ax, data
+mov ds, ax
+mov dx, cr
+mov al, 80h
+out dx, al
+repeat: mov dx, pa
+lea si, sine
+mov cx, 36d
+next: mov al, [si]
+out dx,al
+inc si
+loop next
+jmp repeat
+code ends
+end start
