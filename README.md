@@ -1,2 +1,1 @@
-# Part A consists of assembly language programs(Masm)
-Part B consists programs done using ARM
+This repo contains assembly language programs
